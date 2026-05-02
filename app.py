@@ -47,7 +47,7 @@ embedding = HuggingFaceEmbeddings(
 
 # ===== Vector DB =====
 vectorstore = Chroma(
-    persist_directory="vector_DB",
+    persist_directory="./vector_DB",
     embedding_function=embedding
 )
 
@@ -108,7 +108,7 @@ rag_chain = (
 )
 
 # ===== Input =====
-user_input = st.text_input("اكتبي سؤالك هنا:")
+user_input = st.text_input("اكتب سؤالك هنا:")
 
 
 # ===== Run =====
@@ -119,15 +119,13 @@ if st.button("اسأل"):
             "input": user_input
         })
 
-        # ===== Answer =====
         st.subheader("📌 Answer")
         st.write(response.content)
 
-        # ===== Sources (optional improvement) =====
         st.subheader("📚 References (APA)")
 
-docs = retriever.invoke(user_input)
+        docs = retriever.invoke(user_input)
 
-for i, doc in enumerate(docs):
-    citation = format_apa(doc)
-    st.write(f"{i+1}. {citation}")
+        for i, doc in enumerate(docs):
+            citation = format_apa(doc)
+            st.write(f"{i+1}. {citation}")
