@@ -58,7 +58,6 @@ test_docs = retriever.invoke("test")
 
 st.write("عدد النتائج:", len(test_docs))
 
-
 import os
 
 llm = ChatGoogleGenerativeAI(
