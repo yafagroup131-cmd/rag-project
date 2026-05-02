@@ -52,6 +52,11 @@ vectorstore = Chroma(
 )
 
 retriever = vectorstore.as_retriever()
+st.write("اختبار الداتا")
+
+test_docs = retriever.invoke("test")
+
+st.write("عدد النتائج:", len(test_docs))
 
 
 import os
@@ -129,3 +134,4 @@ if st.button("اسأل"):
         for i, doc in enumerate(docs):
             citation = format_apa(doc)
             st.write(f"{i+1}. {citation}")
+            
