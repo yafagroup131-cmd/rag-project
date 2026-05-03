@@ -15,8 +15,8 @@ from langchain_core.prompts import ChatPromptTemplate
 
 
 # ===== UI =====
-st.title("🤖 RAG Chatbot")
-st.write("اسأل من ملفات PDF")
+st.title("🤖 Retriva Chatbot")
+
 
 st.markdown("""
 <style>
@@ -52,11 +52,6 @@ vectorstore = Chroma(
 )
 
 retriever = vectorstore.as_retriever()
-st.write("اختبار الداتا")
-
-test_docs = retriever.invoke("test")
-
-st.write("عدد النتائج:", len(test_docs))
 
 import os
 
