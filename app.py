@@ -17,6 +17,8 @@ from langchain_core.prompts import ChatPromptTemplate
 # ===== UI =====
 st.title("🤖 Retriva RAG")
 
+st.image("assets/logo.png", width=200)
+
 
 st.markdown("""
 <style>
