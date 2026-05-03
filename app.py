@@ -18,7 +18,7 @@ from langchain_core.prompts import ChatPromptTemplate
 st.markdown(
     """
     <div style="text-align: center;">
-        <img src="assets/logo.png" width="200">
+        <img src="assets/logo.png", width="200">
         <h1>🤖 Retriva RAG</h1>
     </div>
     """,
