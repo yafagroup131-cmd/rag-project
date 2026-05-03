@@ -22,18 +22,27 @@ st.markdown("""
 <style>
 body {
     font-family: 'DM Sans', sans-serif;
-    background-color: #0f0f0f;
-    color: white;
+    background-color: #E8F5E9;  /* Mint Green فاتح */
+    color: #1B5E20;  /* أخضر غامق للنص */
 }
+
 h1 {
     text-align: center;
-    color: #EBD820;
+    color: #2E7D32;
 }
+
 .stButton>button {
-    background-color: #EBD820;
-    color: black;
+    background-color: #66BB6A;  /* زرار أخضر */
+    color: white;
     border-radius: 10px;
 }
+
+.stTextInput>div>div>input {
+    background-color: #FFFFFF;
+    color: black;
+    border-radius: 8px;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
