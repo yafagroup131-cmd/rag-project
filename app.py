@@ -116,7 +116,7 @@ rag_chain = (
 )
 
 # ===== Input =====
-user_input = st.text_input("اكتب سؤالك هنا:")
+user_input = st.text_input("Type your question here:")
 
 
 # ===== Run =====
