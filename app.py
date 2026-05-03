@@ -20,25 +20,33 @@ st.title("🤖 Retriva RAG")
 
 st.markdown("""
 <style>
-body {
-    font-family: 'DM Sans', sans-serif;
-    background-color: #E8F5E9;  /* Mint Green فاتح */
-    color: #1B5E20;  /* أخضر غامق للنص */
+
+/* الخلفية الأساسية */
+[data-testid="stAppViewContainer"] {
+    background-color: #E8F5E9;  /* Mint Green */
 }
 
+/* لون النص */
+[data-testid="stAppViewContainer"] * {
+    color: #1B5E20;
+}
+
+/* العنوان */
 h1 {
     text-align: center;
     color: #2E7D32;
 }
 
+/* زرار */
 .stButton>button {
-    background-color: #66BB6A;  /* زرار أخضر */
+    background-color: #66BB6A;
     color: white;
     border-radius: 10px;
 }
 
+/* input */
 .stTextInput>div>div>input {
-    background-color: #FFFFFF;
+    background-color: white;
     color: black;
     border-radius: 8px;
 }
