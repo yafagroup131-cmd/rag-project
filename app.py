@@ -15,7 +15,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 
 # ===== UI =====
-st.title("🤖 Retriva Chatbot")
+st.title("🤖 Retriva RAG")
 
 
 st.markdown("""
