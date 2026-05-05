@@ -15,13 +15,11 @@ from langchain_core.prompts import ChatPromptTemplate
 
 
 # ===== UI =====
-st.image("assets/logo.png", width=200)
+col1, col2, col3 = st.columns([1,2,1])
 
-st.markdown(
-    """
-    <div style="text-align: center;">
-        <h1>🤖 Retriva RAG</h1>
-    </div>
+with col2:
+    st.image("assets/logo.png", width=200)
+
 
     <style>
 
