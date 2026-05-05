@@ -77,12 +77,11 @@ html, body, [class*="css"] {{
 }}
 
 /* ===== زرار الإرسال (السهم) ===== */
-button[kind="icon"] {
+[data-testid="stChatInput"] button {
     background-color: #81C784 !important;
-    border-radius: 50%;
 }
 
-button[kind="icon"]:hover {
+[data-testid="stChatInput"] button:hover {
     background-color: #66BB6A !important;
 }
 
