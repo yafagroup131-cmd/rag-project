@@ -101,7 +101,10 @@ vectorstore = Chroma(
     embedding_function=embedding
 )
 
-retriever = vectorstore.as_retriever()
+retriever = vectorstore.as_retriever(
+    search_type="mmr",
+    search_kwargs={"k":4}
+)
 
 
 import os
