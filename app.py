@@ -78,11 +78,11 @@ html, body, [class*="css"] {{
 
 /* زرار الإرسال الحقيقي */
 [data-testid="stChatInput"] button {{
-    background-color: #81C784 !important;
+    background-color: #E8F5E9 !important;
 }}
 
 [data-testid="stChatInput"] svg {{
-    fill: #E8F5E9 !important;
+    fill: #81C784 !important;
 }}
 
 </style>
