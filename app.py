@@ -76,6 +76,16 @@ html, body, [class*="css"] {{
     border-radius: 10px;
 }}
 
+/* ===== زرار الإرسال (السهم) ===== */
+button[kind="icon"] {
+    background-color: #81C784 !important;
+    border-radius: 50%;
+}
+
+button[kind="icon"]:hover {
+    background-color: #66BB6A !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
