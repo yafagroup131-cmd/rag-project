@@ -24,40 +24,52 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 st.markdown("""
 <style>
 
-/* الخلفية الأساسية */
+/* ===== الخلفية ===== */
 [data-testid="stAppViewContainer"] {
-    background-color: #E8F5E9;  /* Mint Green */
+    background-color: #E8F5E9;
 }
 
-/* لون النص */
-[data-testid="stAppViewContainer"] * {
-    color: #1B5E20;
+/* ===== الخط ===== */
+html, body, [class*="css"] {
+    font-family: 'DM Sans', sans-serif;
 }
 
-/* العنوان */
-h1 {
-    text-align: center;
-    color: #2E7D32;
+/* ===== إخفاء Streamlit UI ===== */
+#MainMenu, footer, header {
+    visibility: hidden;
 }
 
-/* زرار */
-.stButton>button {
-    background-color: #66BB6A;
-    color: white;
+/* ===== الشات ===== */
+.chat-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* ===== رسائل المستخدم ===== */
+[data-testid="stChatMessage"][data-testid*="user"] {
+    background-color: #A5D6A7;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* ===== رسائل البوت ===== */
+[data-testid="stChatMessage"][data-testid*="assistant"] {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+/* ===== input ===== */
+[data-testid="stChatInput"] {
     border-radius: 10px;
 }
 
-/* input */
-.stTextInput>div>div>input {
-    background-color: white;
-    color: black;
-    border-radius: 8px;
-}
-
 </style>
+""", unsafe_allow_html=True)
 """, unsafe_allow_html=True)
 
 
@@ -129,26 +141,61 @@ rag_chain = (
     | llm
 )
 
-# ===== Input =====
-user_input = st.text_input("Type your question here:")
+# ===== Chat Memory =====
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+    
+   # ===== Show Old Messages ===== 
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
+        
 
+# ===== Chat Memory =====
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# ===== عرض الرسائل القديمة =====
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
+
+# ===== Input =====
+user_input = st.chat_input("Ask your question...")
 
 # ===== Run =====
-if st.button("اسأل"):
-    if user_input:
+if user_input:
 
+    # 🧑 رسالة المستخدم
+    st.session_state.messages.append({
+        "role": "user",
+        "content": user_input
+    })
+
+    with st.chat_message("user"):
+        st.write(user_input)
+
+    # 🤖 تشغيل RAG
+    with st.spinner("Thinking..."):
         response = rag_chain.invoke({
             "input": user_input
         })
 
-        st.subheader("📌 Answer")
-        st.write(response.content)
+    answer = response.content
 
-        st.subheader("📚 References (APA)")
+    # 🤖 رسالة البوت
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": answer
+    })
 
-        docs = retriever.invoke(user_input)
+    with st.chat_message("assistant"):
+        st.write(answer)
 
-        for i, doc in enumerate(docs):
-            citation = format_apa(doc)
-            st.write(f"{i+1}. {citation}")
-            
+        # 📚 المصادر (Dropdown)
+        with st.expander("📚 View References"):
+            docs = retriever.invoke(user_input)
+
+            for i, doc in enumerate(docs):
+                citation = format_apa(doc)
+                st.write(f"{i+1}. {citation}")
