@@ -101,7 +101,7 @@ vectorstore = Chroma(
     embedding_function=embedding
 )
 
-  retriever = vectorstore.as_retriever()
+retriever = vectorstore.as_retriever()
 
 
 import os
