@@ -15,12 +15,23 @@ from langchain_core.prompts import ChatPromptTemplate
 
 
 # ===== UI =====
-col1, col2, col3 = st.columns([1,2,1])
-
-with col2:
-    st.image("assets/logo.png", width=200)
 
 st.markdown("""
+<div style="
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #E8F5E9;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+">
+    <img src="data:image/png;base64,{}" width="100">
+</div>
+""".format(
+    __import__("base64").b64encode(open("assets/logo.png", "rb").read()).decode()
+), unsafe_allow_html=True)
+
     <style>
 
     /* ===== الخلفية ===== */
