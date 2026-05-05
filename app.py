@@ -16,7 +16,11 @@ from langchain_core.prompts import ChatPromptTemplate
 
 # ===== UI =====
 
-st.markdown("""
+import base64
+
+logo = base64.b64encode(open("assets/logo.png", "rb").read()).decode()
+
+st.markdown(f"""
 <div style="
     position: sticky;
     top: 0;
@@ -26,50 +30,47 @@ st.markdown("""
     display: flex;
     justify-content: center;
 ">
-    <img src="data:image/png;base64,{}" width="100">
+    <img src="data:image/png;base64,{logo}" width="100">
 </div>
-""".format(
-    __import__("base64").b64encode(open("assets/logo.png", "rb").read()).decode()
-), unsafe_allow_html=True)
 
-    <style>
+<style>
 
-    /* ===== الخلفية ===== */
-    [data-testid="stAppViewContainer"] {
-        background-color: #E8F5E9;
-    }
+/* ===== الخلفية ===== */
+[data-testid="stAppViewContainer"] {{
+    background-color: #E8F5E9;
+}}
 
-    /* ===== الخط ===== */
-    html, body, [class*="css"] {
-        font-family: 'DM Sans', sans-serif;
-    }
+/* ===== الخط ===== */
+html, body, [class*="css"] {{
+    font-family: 'DM Sans', sans-serif;
+}}
 
-    /* ===== إخفاء Streamlit UI ===== */
-    #MainMenu, footer, header {
-        visibility: hidden;
-    }
+/* ===== إخفاء Streamlit UI ===== */
+#MainMenu, footer, header {{
+    visibility: hidden;
+}}
 
-    /* ===== رسائل المستخدم ===== */
-    [data-testid="stChatMessage"][data-testid*="user"] {
-        background-color: #A5D6A7;
-        border-radius: 15px;
-        padding: 10px;
-    }
+/* ===== رسائل المستخدم ===== */
+[data-testid="stChatMessage"][data-testid*="user"] {{
+    background-color: #A5D6A7;
+    border-radius: 15px;
+    padding: 10px;
+}}
 
-    /* ===== رسائل البوت ===== */
-    [data-testid="stChatMessage"][data-testid*="assistant"] {
-        background-color: white;
-        border-radius: 15px;
-        padding: 10px;
-    }
+/* ===== رسائل البوت ===== */
+[data-testid="stChatMessage"][data-testid*="assistant"] {{
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+}}
 
-    /* ===== input ===== */
-    [data-testid="stChatInput"] {
-        border-radius: 10px;
-    }
+/* ===== input ===== */
+[data-testid="stChatInput"] {{
+    border-radius: 10px;
+}}
 
-    </style>
-    """,unsafe_allow_html=True)
+</style>
+""", unsafe_allow_html=True)
 
 # ===== Embeddings =====
 embedding = HuggingFaceEmbeddings(
