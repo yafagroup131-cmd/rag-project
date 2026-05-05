@@ -108,7 +108,7 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 import os
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
+    model="gemini-2.5-flash",
     temperature=0.2,
     google_api_key=st.secrets["GOOGLE_API_KEY"]
 )
