@@ -77,16 +77,13 @@ html, body, [class*="css"] {{
 }}
 
 /* زرار الإرسال الحقيقي */
-[data-testid="stChatInput"] button {
-    background-color: #81C784 !important;
-    color: white !important;
-    border-radius: 50% !important;
-}
+[data-testid="stChatInput"] button {{
+    background-color: #E8F5E9 !important;
+}}
 
-/* hover */
-[data-testid="stChatInput"] button:hover {
-    background-color: #66BB6A !important;
-}
+[data-testid="stChatInput"] svg {{
+    fill: #81C784 !important;
+}}
 
 </style>
 """, unsafe_allow_html=True)
