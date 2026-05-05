@@ -78,11 +78,11 @@ html, body, [class*="css"] {{
 
 /* زرار الإرسال الحقيقي */
 [data-testid="stChatInput"] button {{
-    background-color: #E8F5E9 !important;
+    background-color: #81C784 !important;
 }}
 
 [data-testid="stChatInput"] svg {{
-    fill: #81C784 !important;
+    fill: #E8F5E9 !important;
 }}
 
 </style>
@@ -106,7 +106,7 @@ retriever = vectorstore.as_retriever()
 import os
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
+    model="gemini-1.5-flash",
     temperature=0.2,
     google_api_key=st.secrets["GOOGLE_API_KEY"]
 )
