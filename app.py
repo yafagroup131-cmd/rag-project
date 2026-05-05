@@ -27,7 +27,7 @@ st.markdown(f"""
     left: 0;
     width: 100%;
     z-index: 999;
-    background-color: #E8F5E9;
+    background-color: #81C784;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@ st.markdown(f"""
 
 /* ===== الخلفية ===== */
 [data-testid="stAppViewContainer"] {{
-    background-color: #81C784;
+    background-color: #E8F5E9;
 }}
 
 /* 👇 لازم نزوّق المساحة تحت الهيدر */
