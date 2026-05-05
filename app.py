@@ -22,10 +22,12 @@ logo = base64.b64encode(open("assets/logo.png", "rb").read()).decode()
 
 st.markdown(f"""
 <div style="
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 999;
-    background-color: #E8F5E9;
+    background-color: #81C784;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -38,6 +40,11 @@ st.markdown(f"""
 /* ===== الخلفية ===== */
 [data-testid="stAppViewContainer"] {{
     background-color: #E8F5E9;
+}}
+
+/* 👇 لازم نزوّق المساحة تحت الهيدر */
+.block-container {{
+    padding-top: 100px;
 }}
 
 /* ===== الخط ===== */
