@@ -15,60 +15,54 @@ from langchain_core.prompts import ChatPromptTemplate
 
 
 # ===== UI =====
+# ===== UI =====
 st.markdown(
     """
     <div style="text-align: center;">
         <img src="assets/logo.png" width="200">
         <h1>🤖 Retriva RAG</h1>
     </div>
+
+    <style>
+
+    /* ===== الخلفية ===== */
+    [data-testid="stAppViewContainer"] {
+        background-color: #E8F5E9;
+    }
+
+    /* ===== الخط ===== */
+    html, body, [class*="css"] {
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ===== إخفاء Streamlit UI ===== */
+    #MainMenu, footer, header {
+        visibility: hidden;
+    }
+
+    /* ===== رسائل المستخدم ===== */
+    [data-testid="stChatMessage"][data-testid*="user"] {
+        background-color: #A5D6A7;
+        border-radius: 15px;
+        padding: 10px;
+    }
+
+    /* ===== رسائل البوت ===== */
+    [data-testid="stChatMessage"][data-testid*="assistant"] {
+        background-color: white;
+        border-radius: 15px;
+        padding: 10px;
+    }
+
+    /* ===== input ===== */
+    [data-testid="stChatInput"] {
+        border-radius: 10px;
+    }
+
+    </style>
     """,
     unsafe_allow_html=True
 )
-<style>
-
-/* ===== الخلفية ===== */
-[data-testid="stAppViewContainer"] {
-    background-color: #E8F5E9;
-}
-
-/* ===== الخط ===== */
-html, body, [class*="css"] {
-    font-family: 'DM Sans', sans-serif;
-}
-
-/* ===== إخفاء Streamlit UI ===== */
-#MainMenu, footer, header {
-    visibility: hidden;
-}
-
-/* ===== الشات ===== */
-.chat-container {
-    max-width: 800px;
-    margin: auto;
-}
-
-/* ===== رسائل المستخدم ===== */
-[data-testid="stChatMessage"][data-testid*="user"] {
-    background-color: #A5D6A7;
-    border-radius: 15px;
-    padding: 10px;
-}
-
-/* ===== رسائل البوت ===== */
-[data-testid="stChatMessage"][data-testid*="assistant"] {
-    background-color: white;
-    border-radius: 15px;
-    padding: 10px;
-}
-
-/* ===== input ===== */
-[data-testid="stChatInput"] {
-    border-radius: 10px;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
 
 # ===== Embeddings =====
 embedding = HuggingFaceEmbeddings(
