@@ -20,7 +20,7 @@ col1, col2, col3 = st.columns([1,2,1])
 with col2:
     st.image("assets/logo.png", width=200)
 
-
+st.markdown("""
     <style>
 
     /* ===== الخلفية ===== */
@@ -58,9 +58,7 @@ with col2:
     }
 
     </style>
-    """,
-    unsafe_allow_html=True
-)
+    """,unsafe_allow_html=True)
 
 # ===== Embeddings =====
 embedding = HuggingFaceEmbeddings(
