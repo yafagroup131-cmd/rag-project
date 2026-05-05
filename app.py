@@ -32,7 +32,7 @@ st.markdown(f"""
     display: flex;
     justify-content: center;
 ">
-    <img src="data:image/png;base64,{logo}" width="100">
+    <img src="data:image/png;base64,{logo}" width="200">
 </div>
 
 <style>
