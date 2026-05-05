@@ -76,11 +76,14 @@ html, body, [class*="css"] {{
     border-radius: 10px;
 }}
 
-/* ===== زرار الإرسال (السهم) ===== */
+/* زرار الإرسال الحقيقي */
 [data-testid="stChatInput"] button {
     background-color: #81C784 !important;
+    color: white !important;
+    border-radius: 50% !important;
 }
 
+/* hover */
 [data-testid="stChatInput"] button:hover {
     background-color: #66BB6A !important;
 }
