@@ -139,15 +139,6 @@ rag_chain = (
     | prompt
     | llm
 )
-
-# ===== Chat Memory =====
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-    
-   # ===== Show Old Messages ===== 
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
         
 
 # ===== Chat Memory =====
